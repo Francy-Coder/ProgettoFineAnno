@@ -1,47 +1,7 @@
 # Idee
-## Gioco sulla dipendenza al gioco d'azzardo (ludopatia)
-### Ambiente
-- Luogo: Italia, Milano || America, Las Vegas
-- Tempo: Giorno / Notte 
-- Meteo: Soleggiato / Piovoso
-- Anno: 17/3/2024
+## Progetto: Il Prezzo del Rischio
 
-### Personaggi
-#### Famiglia
-- Protagonista (Marito): Un normale lavoratore, che torna a casa tardi stanco dal lavoro
-- Moglie: Ha perso di recente il lavoro quindi rimane a casa e si occupa del figlio/a
-- Figlio/a: Un bambino/a che vuole stare con suo padre perchè il padre è sempre al lavoro
-
-#### Casinò
-- Bodyguard
-- Propietario Casinò (?)
-
-#### Altro
-- Migliore Amico (Ludopatico)
-
-### Storia
-Il protagonista di circa 30 anni con una famiglia felice con una moglie e figlio (5 anni), il suo migliore amico decide di potarlo al casino (controvoglia) e pian piano sviluppa una dipendenza al gioco d'azzardo (ludopatia).
-Nel tempo il protagonista inizia a scommetere sempre di più e inzia ad andare piu spesso al casinò (schermo scritte)
-
-#### Finali
-- Buono
--- Il protagonista smette di scommetere e la moglie trova lavoro, la famiglia è felice e va avanti.
-
-- Brutto
-Il protagonista perde tutti i soldi che ha e rimane da solo, visto che la moglie se ne va con il figlio/a a casa dei suoi genitori
-
-
-### Altro
-Aggiungere: Dipinti famosi sul gioco d'azzardo, Effetti Schermo
-
-
-Ecco una versione rivisitata del tuo file Markdown. Ho migliorato la struttura gerarchica, reso il linguaggio più evocativo e aggiunto dettagli tecnici per dare al progetto un taglio più professionale (da "Game Design Document").
-
----
-
-# Progetto: Il Prezzo del Rischio
-
-**Concept:** Un'esperienza narrativa sull'impatto psicologico e sociale della ludopatia.
+**Concetto:** Un'esperienza narrativa sull'impatto psicologico e sociale della ludopatia.
 
 ---
 
@@ -69,8 +29,6 @@ Il contrasto visivo deve riflettere lo stato mentale del protagonista: la calura
 * **Il Migliore Amico:** Il "catalizzatore". Già vittima della ludopatia, funge da guida involontaria verso l'abisso.
 * **Staff del Casinò:** * *Bodyguard:* Ostacoli fisici, rappresentano la barriera tra il giocatore e l'uscita.
 * *Il Proprietario:* Una figura d'ombra, il "villain" invisibile che trae profitto dalla rovina altrui.
-
-
 
 ---
 
