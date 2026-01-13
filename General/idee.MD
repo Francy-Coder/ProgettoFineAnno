@@ -39,3 +39,8 @@
 ### 🎨 Elementi Artistici
 * Effetti Visivi 
 * Dipinti sul gioco d'azzardo
+
+---
+
+## Progetto: Traduttore di Linguaggio dei Segni
+Usufruendo della telecamere del Arduino (o telefono), il sistema determina il linguaggio dei segni. 
