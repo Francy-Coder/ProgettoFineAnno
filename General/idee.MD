@@ -1,6 +1,5 @@
 # Idee
 ## Progetto: Videogioco contro la ludopatia
-
 **Concetto:** Un'esperienza narrativa sull'impatto psicologico e sociale della ludopatia.
 
 ---
@@ -14,7 +13,6 @@
 ---
 
 ### 👥 Caratterizzazione Personaggi
-
 #### Il Nucleo Familiare
 * **Protagonista (Il Padre):** Un lavoratore instancabile che cerca una scorciatoia per garantire un futuro migliore alla famiglia. La stanchezza è il suo punto debole.
 * **La Moglie:** Recentemente disoccupata. Si occupa del figlio/a.
@@ -28,13 +26,13 @@
 ---
 
 ### 📖 Struttura Narrativa
-
+...
 
 ---
 
 ### 🎭 Finali Alternativi
-* Buono: Smettere di scommettere entro una soglia critica e supporto familiare. 
-* Brutto: Perdita totale del capitale e superamento dei debiti limite. | Perdita totale dei beni; la moglie abbandona il protagonista portando con sé il figlio. 
+* **Buono:** Smettere di scommettere entro una soglia critica e supporto familiare. 
+* **Brutto:** Perdita totale del capitale e superamento dei debiti limite. | Perdita totale dei beni; la moglie abbandona il protagonista portando con sé il figlio. 
 
 ---
 
