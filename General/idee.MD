@@ -1,15 +1,22 @@
 # Idee
 ## Gioco sulla dipendenza al gioco d'azzardo (ludopatia)
 ### Ambiente
-- Luogo: Italia, Milano 
+- Luogo: Italia, Milano || America, Las Vegas
 - Tempo: Giorno / Notte 
+- Meteo: Soleggiato / Piovoso
+- Anno: 17/3/2024
 
 ### Personaggi
+#### Famiglia
 - Protagonista (Marito): Un normale lavoratore, che torna a casa tardi stanco dal lavoro
 - Moglie: Ha perso di recente il lavoro quindi rimane a casa e si occupa del figlio/a
 - Figlio/a: Un bambino/a che vuole stare con suo padre perchè il padre è sempre al lavoro
+
+#### Casino
 - Bodyguard
 - Propietario Casinò (?)
+
+#### Altro
 - Migliore Amico (Ludopatico)
 
 ### Storia
