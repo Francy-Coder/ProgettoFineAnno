@@ -33,4 +33,4 @@
 ---
 
 ## Progetto: Traduttore di Linguaggio dei Segni
-Usufruendo della telecamere del Arduino (o telefono), il sistema determina il linguaggio dei segni. 
+Usufruendo di una telecamera, per esempio la telecamera del arduino (device) o del telefono (app), si realizza un traduttore automatico del linguaggio dei segni.
