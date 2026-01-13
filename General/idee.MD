@@ -18,7 +18,7 @@ Nel tempo il protagonista inizia a scommetere sempre di più e inzia ad andare p
 
 #### Finali
 - Buono
-Il protagonista smette di scommetere e la moglie trova lavoro, la famiglia è felice e va avanti.
+-- Il protagonista smette di scommetere e la moglie trova lavoro, la famiglia è felice e va avanti.
 
 - Brutto
 Il protagonista perde tutti i soldi che ha e rimane da solo, visto che la moglie se ne va con il figlio/a a casa dei suoi genitori 
