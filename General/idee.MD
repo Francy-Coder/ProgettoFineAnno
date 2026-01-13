@@ -1,7 +1,7 @@
 # Idee
 ## Gioco sulla ludopatia
 ### Ambiente
-- Luogo: Italia
+- Luogo della storia: in Italia a Milano 
 - Tempo: Giorno / Notte 
 
 ### Personaggi
