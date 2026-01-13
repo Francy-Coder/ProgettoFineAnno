@@ -1,7 +1,7 @@
 # Idee
 ## Gioco sulla dipendenza al gioco d'azzardo (ludopatia)
 ### Ambiente
-- Luogo: ==Italia== a Milano 
+- Luogo: Italia, Milano 
 - Tempo: Giorno / Notte 
 
 ### Personaggi
