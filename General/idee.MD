@@ -1,13 +1,13 @@
 # Idee
 ## Gioco sulla ludopatia
 ### Ambiente
-- Luogo della storia: in Italia a Milano 
+- Luogo: in Italia a Milano 
 - Tempo: Giorno / Notte 
 
 ### Personaggi
-- Protagonista (Marito)
-- Moglie
-- Figlio/a
+- Protagonista (Marito): Un normale lavoratore, che torna a casa tardi stanco dal lavoro
+- Moglie: Ha perso di recente il lavoro quindi rimane a casa e si occupa del figlio/a
+- Figlio/a: Un bambino/a che vuole stare con suo padre perchè il padre è sempre al lavoro
 - Bodyguard
 - Propietario Casinò (?)
 - Migliore Amico (Ludopatico)
@@ -15,3 +15,5 @@
 ### Storia
 Il protagonista di circa 30 anni con una famiglia felice con una moglie e figlio (5 anni), il suo migliore amico decide di potarlo al casino (controvoglia) e pian piano sviluppa una dipendenza al gioco d'azzardo (ludopatia).
 Nel tempo il protagonista inizia a scommetere sempre di più e inzia ad andare piu spesso al casinò (schermo scritte)
+
+#### Finali
