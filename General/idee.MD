@@ -6,9 +6,6 @@
 ---
 
 ## 🌍 Ambientazione e Atmosfera
-
-Il contrasto visivo deve riflettere lo stato mentale del protagonista: la calura opprimente della realtà contro le luci artificiali del casinò.
-
 * **Location Primaria:** Milano o Las Vegas.
 * **Dinamismo Temporale:** Ciclo Giorno/Notte.
 * **Meteo:** Soleggiato (realtà quotidiana) / Piovoso (momenti di crisi).
