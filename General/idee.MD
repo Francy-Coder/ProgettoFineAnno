@@ -37,5 +37,5 @@ Usufruendo di una telecamera, per esempio la telecamera del arduino (device) o d
 
 ---
 
-## Video gioco sulla cecità
+## Progetto: Video gioco sulla cecità
 Creazione di un videogioco dove il giocatore si mette nei panni di una persona cieca. Il giocatore andrà in giro per la città usufruendo del bastone per i ciechi. Ongi volta che il bastone tocca qualcosa, il giocatore potrà vedere una piccola area della mappa.
