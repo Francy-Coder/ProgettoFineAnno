@@ -1,5 +1,5 @@
 # Idee
-## Progetto: Il Prezzo del Rischio
+## Progetto: Videogioco contro il gioco d'azzardo
 
 **Concetto:** Un'esperienza narrativa sull'impatto psicologico e sociale della ludopatia.
 
@@ -9,7 +9,7 @@
 
 Il contrasto visivo deve riflettere lo stato mentale del protagonista: la calura opprimente della realtà contro le luci artificiali del casinò.
 
-* **Location Primaria:** Milano (per un tono più realistico/cupo) o Las Vegas (per un tono più cinematografico).
+* **Location Primaria:** Milano o Las Vegas.
 * **Dinamismo Temporale:** Ciclo Giorno/Notte.
 * **Meteo:** Soleggiato (realtà quotidiana) / Piovoso (momenti di crisi).
 * **Timeline:** Inizio della vicenda fissato al **17 Marzo 2024**.
@@ -17,16 +17,16 @@ Il contrasto visivo deve riflettere lo stato mentale del protagonista: la calura
 ---
 
 ## 👥 Caratterizzazione Personaggi
-### Il Nucleo Familiare
 
+### Il Nucleo Familiare
 * **Protagonista (Il Padre):** Un lavoratore instancabile che cerca una scorciatoia per garantire un futuro migliore alla famiglia. La stanchezza è il suo punto debole.
-* **La Moglie:** Recentemente disoccupata. Rappresenta la stabilità emotiva e il "timer" del gioco: più tempo passa, più la sua fiducia diminuisce.
+* **La Moglie:** Recentemente disoccupata. Si occupa del figlio/a.
 * **Il Figlio/a (5 anni):** Simbolo dell'innocenza e della perdita. La sua presenza è un costante richiamo alle responsabilità trascurate.
 
 ### Il Mondo Sotterraneo
-* **Il Migliore Amico:** Il "catalizzatore". Già vittima della ludopatia, funge da guida involontaria verso l'abisso.
-* **Staff del Casinò:** * *Bodyguard:* Ostacoli fisici, rappresentano la barriera tra il giocatore e l'uscita.
-* *Il Proprietario:* Una figura d'ombra, il "villain" invisibile che trae profitto dalla rovina altrui.
+* **Il Migliore Amico:** Il "fattore principale" per cui il protragonista inzia a svillupare la ludopatia.
+* **Staff del Casinò:** * *Bodyguard:* ...
+* *Il Proprietario:* ...
 
 ---
 
