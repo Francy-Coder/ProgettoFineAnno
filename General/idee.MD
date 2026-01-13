@@ -9,10 +9,11 @@
 ### Personaggi
 #### Famiglia
 - Protagonista (Marito): Un normale lavoratore, che torna a casa tardi stanco dal lavoro
+-- 5678
 - Moglie: Ha perso di recente il lavoro quindi rimane a casa e si occupa del figlio/a
 - Figlio/a: Un bambino/a che vuole stare con suo padre perchè il padre è sempre al lavoro
 
-#### Casino
+#### Casinò
 - Bodyguard
 - Propietario Casinò (?)
 
@@ -28,4 +29,8 @@ Nel tempo il protagonista inizia a scommetere sempre di più e inzia ad andare p
 -- Il protagonista smette di scommetere e la moglie trova lavoro, la famiglia è felice e va avanti.
 
 - Brutto
-Il protagonista perde tutti i soldi che ha e rimane da solo, visto che la moglie se ne va con il figlio/a a casa dei suoi genitori 
+Il protagonista perde tutti i soldi che ha e rimane da solo, visto che la moglie se ne va con il figlio/a a casa dei suoi genitori
+
+
+### Altro
+Aggiungere: Dipinti famosi sul gioco d'azzardo, Effetti Schermo
