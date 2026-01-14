@@ -1,5 +1,5 @@
 # Idee
-## Progetto: Videogioco contro la ludopatia
+## Progetto: Videogioco contro la ludopatia <-- Da Aggiornare
 **Concetto:** Un'esperienza narrativa sull'impatto psicologico e sociale della ludopatia.
 
 ### 🌍 Ambientazione 
