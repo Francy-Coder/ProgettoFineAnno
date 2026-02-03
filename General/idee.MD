@@ -1,5 +1,8 @@
 # Idee
-## [Progetto: Videogioco contro la ludopatia](https://docs.google.com/document/d/1FXbgOWakBnwKmAan28azt7ecHmRvO1eDiwRRQkMDiQE/edit?tab=t.0) <-- Da Aggiornare
+## [Progetto: Videogioco contro la ludopatia](https://docs.google.com/document/d/1FXbgOWakBnwKmAan28azt7ecHmRvO1eDiwRRQkMDiQE/edit?tab=t.0) 
+
+|DA AGGIORNARE|
+
 **Concetto:** Un'esperienza narrativa sull'impatto psicologico e sociale della ludopatia.
 
 ### 🌍 Ambientazione 
