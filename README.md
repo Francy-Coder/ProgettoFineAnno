@@ -1,2 +1,2 @@
 # ProgettoFineAnno
-Repository per il progetto di fine anno
+Repository per il progetto di fine anno.
