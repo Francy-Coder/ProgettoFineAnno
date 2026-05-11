@@ -1,0 +1,212 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans);font-size:13px;color:var(--color-text-primary)}
+.root{padding:16px 0 24px}
+.section{margin-bottom:6px}
+.section-header{display:flex;align-items:center;gap:8px;padding:7px 12px;border-radius:var(--border-radius-md);cursor:pointer;user-select:none;font-weight:500;font-size:13px;transition:background .15s}
+.section-header:hover{background:var(--color-background-secondary)}
+.section-header .ti{font-size:15px;width:18px;text-align:center}
+.chevron{margin-left:auto;font-size:11px;color:var(--color-text-tertiary);transition:transform .2s}
+.open .chevron{transform:rotate(90deg)}
+.children{overflow:hidden;padding-left:28px;border-left:1.5px solid var(--color-border-tertiary);margin-left:20px}
+.children.hidden{display:none}
+.file{display:flex;align-items:center;gap:8px;padding:5px 10px;border-radius:var(--border-radius-md);cursor:pointer;transition:background .15s;line-height:1.4}
+.file:hover{background:var(--color-background-secondary)}
+.file .ti{font-size:13px;width:16px;text-align:center}
+.fname{font-weight:400;color:var(--color-text-primary)}
+.fext{font-size:11px;color:var(--color-text-tertiary);margin-left:2px}
+.fdesc{font-size:11px;color:var(--color-text-secondary);margin-left:auto;text-align:right;max-width:200px}
+.badge{font-size:10px;padding:1px 7px;border-radius:20px;font-weight:500;white-space:nowrap}
+.b-java{background:#FFF3CD;color:#856404}
+.b-xml{background:#D1ECF1;color:#0C5460}
+.b-sql{background:#D4EDDA;color:#155724}
+.b-kt{background:#E2D9F3;color:#5E35B1}
+.b-prop{background:#F8D7DA;color:#721c24}
+
+.panel{background:var(--color-background-secondary);border-radius:var(--border-radius-lg);padding:14px 16px;margin:12px 0 6px;border:1px solid var(--color-border-tertiary)}
+.panel h3{font-size:12px;font-weight:500;color:var(--color-text-secondary);margin-bottom:10px;text-transform:uppercase;letter-spacing:.04em}
+.legend{display:flex;flex-wrap:wrap;gap:8px}
+.owner{display:flex;align-items:center;gap:6px;font-size:12px}
+.dot{width:10px;height:10px;border-radius:50%}
+
+.info-box{display:none;background:var(--color-background-primary);border:1px solid var(--color-border-secondary);border-radius:var(--border-radius-md);padding:12px 14px;margin:4px 0 2px;font-size:12px;line-height:1.6;color:var(--color-text-secondary)}
+.info-box.show{display:block}
+.info-box strong{color:var(--color-text-primary);font-weight:500}
+.info-row{display:flex;gap:6px;margin-top:6px;flex-wrap:wrap}
+</style>
+
+<div class="root">
+
+<div class="panel">
+  <h3>Legenda proprietari</h3>
+  <div class="legend">
+    <div class="owner"><div class="dot" style="background:#1E88E5"></div>Tresoldi — Navigazione/GPS</div>
+    <div class="owner"><div class="dot" style="background:#43A047"></div>Bellomo — UI/Accessibilità</div>
+    <div class="owner"><div class="dot" style="background:#9C27B0"></div>Serghej — Layout XML</div>
+    <div class="owner"><div class="dot" style="background:#FF8F00"></div>Bartucca — Database</div>
+    <div class="owner"><div class="dot" style="background:#E53935"></div>Crippa — Backend</div>
+  </div>
+</div>
+
+<div id="tree"></div>
+
+</div>
+
+<script>
+const data = [
+  {id:'android', label:'📱 App Android', subtitle:'com.example.visiongo', open:true, children:[
+    {id:'manifest', label:'AndroidManifest', ext:'.xml', icon:'ti-file-code', badge:'xml', desc:'Permessi e activity', info:{owner:'Tutti',desc:'Dichiara tutte le activity, i permessi (GPS, audio, chiamate, internet) e il launcher.',files:['RECORD_AUDIO','ACCESS_FINE_LOCATION','CALL_PHONE','INTERNET','VIBRATE']}},
+    {id:'act', label:'Activity (Java)', subtitle:'Schermata principale', open:true, children:[
+      {id:'mainact', label:'MainActivity', ext:'.java', icon:'ti-brand-android', badge:'java', color:'#1E88E5', desc:'Home screen', info:{owner:'Bellomo + Tresoldi',desc:'Schermata principale. Gestisce TTS, comandi vocali, pulsante emergenza con chiamata al 112, navigazione verso le activity.',files:['btnVoice → SpeechRecognizer','btnDestination → DestinationActivity','btnEmergency → chiamata 112','btnFavorites → FavoritePlacesActivity','handleVoiceCommand()']}, },
+      {id:'destact', label:'DestinationActivity', ext:'.java', icon:'ti-map-pin', badge:'java', color:'#1E88E5', desc:'Inserisci destinazione', info:{owner:'Tresoldi',desc:'Permette di digitare o dettare una destinazione, poi lancia NavigationActivity passando la stringa via Intent.',files:['editDestination','btnVoiceInput','btnStartNavigation → NavigationActivity']}},
+      {id:'navact', label:'NavigationActivity', ext:'.java', icon:'ti-navigation', badge:'java', color:'#1E88E5', desc:'GPS + istruzioni', info:{owner:'Tresoldi',desc:'Avvia il GPS tramite LocationManager, aggiorna txtDirection ad ogni fix, parla con TTS, vibra a conferma. Fallback da GPS a NETWORK provider.',files:['LocationManager','LocationListener','TextToSpeech','Vibrator','txtDirection','txtGpsStatus']}},
+      {id:'favact', label:'FavoritePlacesActivity', ext:'.java', icon:'ti-star', badge:'java', color:'#43A047', desc:'Luoghi preferiti', info:{owner:'Bellomo',desc:'Mostra la lista dei luoghi preferiti caricati dal DB locale (Room). Scorciatoie rapide Casa e Lavoro. Clic su voce → NavigationActivity.',files:['ListView listFavorites','btnGoHome','btnGoWork','btnAddPlace','ArrayAdapter']}},
+      {id:'loginact', label:'LoginActivity', ext:'.java', icon:'ti-lock', badge:'java', color:'#43A047', desc:'Accesso utente', info:{owner:'Bellomo + Crippa',desc:'Form email/password. Chiama POST /api/auth/login via Retrofit, salva il JWT in SharedPreferences, va alla MainActivity.',files:['editEmail','editPassword','btnLogin','RetrofitClient','SharedPreferences']}},
+      {id:'regact', label:'RegisterActivity', ext:'.java', icon:'ti-user-plus', badge:'java', color:'#43A047', desc:'Registrazione', info:{owner:'Bellomo + Crippa',desc:'Raccoglie nome, email, password. Chiama POST /api/auth/registrazione, poi porta al login.',files:['editName','editEmail','editPassword','btnRegister']}},
+      {id:'histact', label:'HistoryActivity', ext:'.java', icon:'ti-history', badge:'java', color:'#43A047', desc:'Cronologia percorsi', info:{owner:'Bellomo',desc:'Mostra gli ultimi percorsi dal DB locale. Ogni riga mostra destinazione, data, durata e difficoltà percepita.',files:['ListView listHistory','item_history.xml','PercorsoDao.ultimeDestinazioni()']}},
+    ]},
+    {id:'layouts', label:'Layout XML (res/layout)', subtitle:'Serghej', open:true, children:[
+      {id:'lmain', label:'activity_main', ext:'.xml', icon:'ti-layout', badge:'xml', color:'#9C27B0', desc:'Home screen', info:{owner:'Serghej',desc:'5 pulsanti grandi (90dp), sfondo nero, testo bianco, bottone emergenza ancorato al fondo. Ottimizzato TalkBack.',files:['btnVoice','btnDestination','btnFavorites','btnHistory','btnEmergency']}},
+      {id:'ldest', label:'activity_destination', ext:'.xml', icon:'ti-layout', badge:'xml', color:'#9C27B0', desc:'Inserimento destinazione', info:{owner:'Serghej',desc:'EditText grande + pulsante vocale + pulsante Avvia + torna indietro. Hint e contentDescription per screen reader.',files:['editDestination','btnVoiceInput','btnStartNavigation','btnBack']}},
+      {id:'lnav', label:'activity_navigation', ext:'.xml', icon:'ti-layout', badge:'xml', color:'#9C27B0', desc:'Navigazione attiva', info:{owner:'Serghej',desc:'Testo istruzione in verde brillante, stato GPS, distanza prossimo punto, Ripeti e Ferma.',files:['txtNavigation','txtDirection','txtGpsStatus','txtDistance','btnRepeat','btnStopNav']}},
+      {id:'lfav', label:'activity_favorite_places', ext:'.xml', icon:'ti-layout', badge:'xml', color:'#9C27B0', desc:'Luoghi preferiti', info:{owner:'Serghej',desc:'Scorciatoie Casa/Lavoro, divider, ListView luoghi personalizzati, Aggiungi Luogo in fondo.',files:['btnGoHome','btnGoWork','divider','listFavorites','btnAddPlace']}},
+      {id:'llogin', label:'activity_login', ext:'.xml', icon:'ti-layout', badge:'xml', color:'#9C27B0', desc:'Schermata login', info:{owner:'Serghej',desc:'Titolo app grande, due EditText (email/password), pulsante Accedi, link registrazione.',files:['editEmail','editPassword','btnLogin','btnGoRegister']}},
+      {id:'lreg', label:'activity_register', ext:'.xml', icon:'ti-layout', badge:'xml', color:'#9C27B0', desc:'Registrazione (ScrollView)', info:{owner:'Serghej',desc:'ScrollView per schermi piccoli. Nome, email, password, registrati, link login.',files:['editName','editEmail','editPassword','btnRegister','btnGoLogin']}},
+      {id:'lhist', label:'activity_history', ext:'.xml', icon:'ti-layout', badge:'xml', color:'#9C27B0', desc:'Cronologia', info:{owner:'Serghej',desc:'Titolo, messaggio vuoto (gone), ListView, pulsante Torna.',files:['txtHistoryTitle','txtEmpty','listHistory','btnBackHistory']}},
+      {id:'litem', label:'item_history', ext:'.xml', icon:'ti-layout', badge:'xml', color:'#9C27B0', desc:'Riga lista cronologia', info:{owner:'Serghej',desc:'LinearLayout verticale: destinazione bold, data+durata, difficoltà in verde. Usato dall\'Adapter.',files:['txtItemDest','txtItemDate','txtItemDiff']}},
+    ]},
+    {id:'values', label:'Risorse (res/values)', subtitle:'Serghej', open:false, children:[
+      {id:'colors', label:'colors', ext:'.xml', icon:'ti-palette', badge:'xml', color:'#9C27B0', desc:'Palette colori', info:{owner:'Serghej',desc:'Definisce tutti i colori dell\'app: sfondi, testi, pulsanti, colori navigazione e focus accessibilità.',files:['bg_black, bg_dark, bg_card','text_white, text_hint','btn_blue, btn_green, btn_orange, btn_red','nav_green, nav_yellow','focus_outline']}},
+      {id:'strings', label:'strings', ext:'.xml', icon:'ti-abc', badge:'xml', color:'#9C27B0', desc:'Testi e contentDescription', info:{owner:'Serghej',desc:'Tutte le stringhe visibili + le contentDescription per TalkBack. Nessun testo cablato nel codice Java.',files:['Etichette pulsanti','Hint campi','Descrizioni accessibilità','Messaggi stato']}},
+      {id:'dimens', label:'dimens', ext:'.xml', icon:'ti-ruler', badge:'xml', color:'#9C27B0', desc:'Dimensioni standard', info:{owner:'Serghej',desc:'Definisce dimensioni uniformi: btn_width 320dp, btn_height 90dp, font sizes, margini.',files:['btn_width: 320dp','btn_height: 90dp','btn_height_small: 70dp','text_title: 40sp','text_btn_large: 24sp']}},
+      {id:'themes', label:'themes', ext:'.xml', icon:'ti-brush', badge:'xml', color:'#9C27B0', desc:'Tema scuro + stile pulsanti', info:{owner:'Serghej',desc:'Estende AppCompat DayNight NoActionBar. Definisce stile Widget.VisionGo.Button con pulsanti 90dp.',files:['Theme.VisionGo','Widget.VisionGo.Button','colorPrimary, colorAccent','focus highlight']}},
+    ]},
+    {id:'drawable', label:'Drawable (res/drawable)', subtitle:'Serghej', open:false, children:[
+      {id:'btnround', label:'btn_round', ext:'.xml', icon:'ti-square-rounded', badge:'xml', color:'#9C27B0', desc:'Bordi arrotondati', info:{owner:'Serghej',desc:'Shape rettangolare con angoli arrotondati (rx=16dp) usato come sfondo dei pulsanti.',files:['shape: rectangle','corners: 16dp','solid: #1E88E5']}},
+    ]},
+    {id:'db', label:'database/', subtitle:'Bartucca — Room ORM', open:false, children:[
+      {id:'appdb', label:'AppDatabase', ext:'.java', icon:'ti-database', badge:'java', color:'#FF8F00', desc:'Singleton Room', info:{owner:'Bartucca',desc:'Classe Room principale. Singleton thread-safe. Registra tutte le entità e espone i DAO.',files:['Utente.class','LuogoPreferito.class','Percorso.class','CronologiaPercorso.class','FeedbackSicurezza.class']}},
+      {id:'entities', label:'entities/', subtitle:'5 entità', open:false, children:[
+        {id:'eutente', label:'Utente', ext:'.java', icon:'ti-user', badge:'java', color:'#FF8F00', desc:'Tabella utenti', info:{owner:'Bartucca',desc:'Mappa la tabella utenti SQL. Campi: id, nome, email, passwordHash, usaAudio, livelloDettaglio, evitaTraffico.',files:['@Entity tableName=utenti','@PrimaryKey autoGenerate']}},
+        {id:'eluogo', label:'LuogoPreferito', ext:'.java', icon:'ti-map-pin', badge:'java', color:'#FF8F00', desc:'Luoghi salvati', info:{owner:'Bartucca',desc:'Casa, lavoro, ecc. FK verso Utente con CASCADE. Salva lat/lon e tipo (enum).',files:['@ForeignKey Utente','tipo: casa/lavoro/altro']}},
+        {id:'epercorso', label:'Percorso', ext:'.java', icon:'ti-route', badge:'java', color:'#FF8F00', desc:'Percorso salvato', info:{owner:'Bartucca',desc:'Salva percorso con partenza, arrivo, km, minuti, livello sicurezza, presenza semafori e marciapiedi.',files:['livelloSicurezza: basso/medio/alto','presenzaSemafori, presenzaMarciapiedi']}},
+        {id:'ecron', label:'CronologiaPercorso', ext:'.java', icon:'ti-history', badge:'java', color:'#FF8F00', desc:'Storico utilizzi', info:{owner:'Bartucca',desc:'Registra ogni percorso effettuato: tempo effettivo, completato, difficoltà percepita (1-5). FK doppio.',files:['completato: boolean','difficoltaPercepita: 1..5']}},
+        {id:'efeed', label:'FeedbackSicurezza', ext:'.java', icon:'ti-alert-triangle', badge:'java', color:'#FF8F00', desc:'Segnalazioni ostacoli', info:{owner:'Bartucca',desc:'Segnalazione da utente: tipo (ostacolo/lavori/pericolo), gravità 1-5, descrizione, data.',files:['tipo: ostacolo/lavori/pericolo/altro','gravita: 1..5']}},
+      ]},
+      {id:'daos', label:'dao/', subtitle:'3 DAO', open:false, children:[
+        {id:'utentedao', label:'UtenteDao', ext:'.java', icon:'ti-database-export', badge:'java', color:'#FF8F00', desc:'Query utenti', info:{owner:'Bartucca',desc:'CRUD utenti. Ricerca per email (login) e per ID. Lista tutti.',files:['inserisci()','trovaPeremail()','trovaPerID()','tuttiGliUtenti()']}},
+        {id:'luogodao', label:'LuogoDao', ext:'.java', icon:'ti-database-export', badge:'java', color:'#FF8F00', desc:'Query luoghi', info:{owner:'Bartucca',desc:'Inserisci, elimina, filtra per utente e per tipo (casa, lavoro, ecc.).',files:['inserisci()','luoghiDellUtente()','trovaTipo()']}},
+        {id:'percdao', label:'PercorsoDao', ext:'.java', icon:'ti-database-export', badge:'java', color:'#FF8F00', desc:'Query percorsi', info:{owner:'Bartucca',desc:'Inserisce percorso e cronologia. Recupera ultimi N percorsi usati (JOIN con cronologia).',files:['inserisciPercorso()','inserisciCronologia()','ultimeDestinazioni()','cronologiaDellUtente()']}},
+      ]},
+    ]},
+    {id:'network', label:'network/', subtitle:'Tresoldi — Retrofit', open:false, children:[
+      {id:'apiservice', label:'ApiService', ext:'.java', icon:'ti-cloud', badge:'java', color:'#1E88E5', desc:'Interfaccia REST', info:{owner:'Tresoldi',desc:'Definisce tutte le chiamate HTTP verso il backend Spring Boot: login, registrazione, luoghi, cronologia.',files:['POST /api/auth/login','POST /api/auth/registrazione','GET /api/luoghi/{id}','POST /api/luoghi','GET /api/cronologia/{id}']}},
+      {id:'retroclient', label:'RetrofitClient', ext:'.java', icon:'ti-cloud', badge:'java', color:'#1E88E5', desc:'Client HTTP singleton', info:{owner:'Tresoldi',desc:'Singleton Retrofit con base URL del server (10.0.2.2:8080 per emulatore). Usa GsonConverterFactory.',files:['BASE_URL = http://10.0.2.2:8080/','GsonConverterFactory','getInstance()']}},
+    ]},
+  ]},
+
+  {id:'backend', label:'☁️ Backend Spring Boot', subtitle:'Progetto Maven separato (Crippa)', open:false, children:[
+    {id:'mainapp', label:'VisionGoApplication', ext:'.java', icon:'ti-brand-java', badge:'java', color:'#E53935', desc:'Entry point', info:{owner:'Crippa',desc:'Classe principale @SpringBootApplication. Avvia il server sulla porta 8080.',files:['@SpringBootApplication','SpringApplication.run()']}},
+    {id:'approp', label:'application.properties', ext:'', icon:'ti-settings', badge:'prop', color:'#E53935', desc:'Config DB + JWT', info:{owner:'Crippa',desc:'URL MySQL, credenziali, porta server, chiave segreta JWT e durata token (24h).',files:['datasource.url','jwt.secret','jwt.expiration=86400000','server.port=8080']}},
+    {id:'bmodel', label:'model/', subtitle:'Entità JPA', open:false, children:[
+      {id:'mutente', label:'Utente', ext:'.java', icon:'ti-user', badge:'java', color:'#E53935', desc:'Mappa tabella MySQL', info:{owner:'Crippa',desc:'Entità JPA che mappa la tabella utenti MySQL. Stessi campi del Room Android.',files:['@Entity @Table(utenti)','@Id @GeneratedValue','@Column unique email']}},
+      {id:'mluogo', label:'LuogoPreferito', ext:'.java', icon:'ti-map-pin', badge:'java', color:'#E53935', desc:'Luoghi preferiti', info:{owner:'Crippa',desc:'JPA entity per luoghi_preferiti con FK verso Utente.',files:['@ManyToOne Utente','tipo: enum stringa']}},
+      {id:'mcron', label:'CronologiaPercorso', ext:'.java', icon:'ti-history', badge:'java', color:'#E53935', desc:'Storico', info:{owner:'Crippa',desc:'Storico utilizzi percorsi.',files:['completato, tempoEffettivo','difficoltaPercepita 1-5']}},
+    ]},
+    {id:'brepo', label:'repository/', subtitle:'Spring Data JPA', open:false, children:[
+      {id:'rutenrep', label:'UtenteRepository', ext:'.java', icon:'ti-database', badge:'java', color:'#E53935', desc:'Query utenti', info:{owner:'Crippa',desc:'Estende JpaRepository. Metodi custom: findByEmail, existsByEmail usati nell\'autenticazione.',files:['findByEmail()','existsByEmail()','extends JpaRepository']}},
+      {id:'rluogrep', label:'LuogoRepository', ext:'.java', icon:'ti-database', badge:'java', color:'#E53935', desc:'Query luoghi', info:{owner:'Crippa',desc:'findByIdUtente() per recuperare tutti i luoghi di un utente.',files:['findByIdUtente(int idUtente)']}},
+      {id:'rcronrep', label:'CronologiaRepository', ext:'.java', icon:'ti-database', badge:'java', color:'#E53935', desc:'Query cronologia', info:{owner:'Crippa',desc:'Recupera cronologia ordinata per id discendente.',files:['findByIdUtenteOrderByIdCronologiaDesc()']}},
+    ]},
+    {id:'bctrl', label:'controller/', subtitle:'REST Endpoints', open:false, children:[
+      {id:'authctrl', label:'AuthController', ext:'.java', icon:'ti-lock', badge:'java', color:'#E53935', desc:'/api/auth/*', info:{owner:'Crippa',desc:'POST /registrazione: hash password BCrypt, salva utente, restituisce JWT. POST /login: verifica hash, restituisce JWT + nome + id.',files:['POST /api/auth/registrazione','POST /api/auth/login','BCryptPasswordEncoder','JWT generato da JwtUtil']}},
+      {id:'luoghictrl', label:'LuoghiController', ext:'.java', icon:'ti-map-pin', badge:'java', color:'#E53935', desc:'/api/luoghi/*', info:{owner:'Crippa',desc:'GET per lista luoghi utente, POST per aggiungere, DELETE per eliminare. Tutti richiedono header Authorization: Bearer <token>.',files:['GET /api/luoghi/{idUtente}','POST /api/luoghi','DELETE /api/luoghi/{idLuogo}','Validazione JWT']}},
+      {id:'cronctrl', label:'CronologiaController', ext:'.java', icon:'ti-history', badge:'java', color:'#E53935', desc:'/api/cronologia/*', info:{owner:'Crippa',desc:'GET cronologia utente ordinata. POST salva nuovo percorso completato.',files:['GET /api/cronologia/{idUtente}','POST /api/cronologia']}},
+    ]},
+    {id:'bsec', label:'security/', subtitle:'JWT Auth', open:false, children:[
+      {id:'jwtutil', label:'JwtUtil', ext:'.java', icon:'ti-key', badge:'java', color:'#E53935', desc:'Genera e valida token', info:{owner:'Crippa',desc:'Genera JWT con email come subject e scadenza 24h. Estrae email dal token, valida firma.',files:['generaToken(email)','estraiEmail(token)','isTokenValido(token)','HS256 + secret da properties']}},
+    ]},
+  ]},
+
+  {id:'sqldb', label:'🗄️ Database SQL (MySQL)', subtitle:'Bartucca — schema remoto', open:false, children:[
+    {id:'utentitbl', label:'utenti', ext:'', icon:'ti-table', badge:'sql', color:'#FF8F00', desc:'Tabella principale', info:{owner:'Bartucca',desc:'PK id_utente AUTO_INCREMENT. Email UNIQUE NOT NULL. Preferenze: usa_audio, livello_dettaglio ENUM, evita_traffico.',files:['id_utente INT PK AI','email VARCHAR(150) UNIQUE','password_hash VARCHAR(255)','usa_audio BOOLEAN','livello_dettaglio ENUM']}},
+    {id:'luoghitbl', label:'luoghi_preferiti', ext:'', icon:'ti-table', badge:'sql', color:'#FF8F00', desc:'Luoghi salvati', info:{owner:'Bartucca',desc:'FK → utenti(id_utente) CASCADE. Nome, indirizzo, lat/lon, tipo ENUM(casa/lavoro/tempo_libero/altro).',files:['FK id_utente → utenti','latitudine DECIMAL(10,8)','longitudine DECIMAL(11,8)','tipo ENUM']}},
+    {id:'perctbl', label:'percorsi', ext:'', icon:'ti-table', badge:'sql', color:'#FF8F00', desc:'Percorsi salvati', info:{owner:'Bartucca',desc:'FK → utenti. Partenza, arrivo, km, minuti, livello sicurezza, presenza semafori, presenza marciapiedi.',files:['distanza_km DECIMAL(5,2)','livello_sicurezza ENUM','presenza_semafori BOOLEAN','presenza_marciapiedi BOOLEAN']}},
+    {id:'crontbl', label:'cronologia_percorsi', ext:'', icon:'ti-table', badge:'sql', color:'#FF8F00', desc:'Storico utilizzi', info:{owner:'Bartucca',desc:'FK doppio: utenti + percorsi. Tempo effettivo, completato, difficoltà 1-5 con CHECK constraint.',files:['FK id_utente + id_percorso','completato BOOLEAN DEFAULT TRUE','difficolta_percepita CHECK(1..5)','data_utilizzo TIMESTAMP DEFAULT NOW']}},
+    {id:'puntitbl', label:'punti_percorso', ext:'', icon:'ti-table', badge:'sql', color:'#FF8F00', desc:'Waypoint navigazione', info:{owner:'Bartucca',desc:'Punti intermedi di un percorso con ordine, descrizione vocale, lat/lon, tipo (incrocio, semaforo, ecc.).',files:['ordine INT','descrizione TEXT (istruzione vocale)','tipo ENUM(incrocio/semaforo/attraversamento/ostacolo)']}},
+    {id:'feedtbl', label:'feedback_sicurezza', ext:'', icon:'ti-table', badge:'sql', color:'#FF8F00', desc:'Segnalazioni utenti', info:{owner:'Bartucca',desc:'Segnalazioni di ostacoli/pericoli sul percorso. Gravità 1-5 con CHECK, data_segnalazione automatica.',files:['tipo ENUM(ostacolo/lavori/pericolo/altro)','gravita INT CHECK(1..5)','data_segnalazione TIMESTAMP DEFAULT NOW']}},
+  ]},
+];
+
+let selected = null;
+
+function badge(b){
+  const map={java:'b-java',xml:'b-xml',sql:'b-sql',kt:'b-kt',prop:'b-prop'};
+  if(!b) return '';
+  return `<span class="badge ${map[b]||''}">${b}</span>`;
+}
+
+function colorDot(c){
+  if(!c) return '';
+  return `<span style="width:8px;height:8px;border-radius:50%;background:${c};display:inline-block;flex-shrink:0"></span>`;
+}
+
+function buildInfo(node){
+  if(!node.info) return '';
+  const {owner,desc,files} = node.info;
+  return `<div class="info-box" id="info-${node.id}">
+    <strong>${owner}</strong> — ${desc}
+    <div class="info-row">${files.map(f=>`<span class="badge b-java" style="background:var(--color-background-secondary);color:var(--color-text-secondary)">${f}</span>`).join('')}</div>
+  </div>`;
+}
+
+function buildNode(node, depth=0){
+  if(node.children){
+    const childrenHtml = node.children.map(c=>buildNode(c,depth+1)).join('');
+    const id = 'sec-'+node.id;
+    const open = node.open;
+    return `<div class="section">
+      <div class="section-header ${open?'open':''}" onclick="toggleSection('${id}')">
+        <span style="font-size:15px">${node.label}</span>
+        ${node.subtitle?`<span style="font-size:11px;color:var(--color-text-tertiary);font-weight:400">${node.subtitle}</span>`:''}
+        <span class="chevron ti ti-chevron-right"></span>
+      </div>
+      <div class="children ${open?'':'hidden'}" id="${id}">
+        ${childrenHtml}
+      </div>
+    </div>`;
+  } else {
+    return `<div>
+      <div class="file" onclick="toggleInfo('${node.id}')">
+        ${node.color?colorDot(node.color):''}
+        <i class="ti ${node.icon||'ti-file'}" style="color:var(--color-text-secondary);${node.color?'color:'+node.color:''}"></i>
+        <span class="fname">${node.label}<span class="fext">${node.ext||''}</span></span>
+        ${badge(node.badge)}
+        <span class="fdesc">${node.desc||''}</span>
+      </div>
+      ${buildInfo(node)}
+    </div>`;
+  }
+}
+
+function toggleSection(id){
+  const el = document.getElementById(id);
+  const hdr = el.previousElementSibling;
+  const hidden = el.classList.toggle('hidden');
+  hdr.classList.toggle('open', !hidden);
+}
+
+function toggleInfo(id){
+  const box = document.getElementById('info-'+id);
+  if(!box) return;
+  const showing = box.classList.toggle('show');
+  if(showing && selected && selected!==id){
+    const prev = document.getElementById('info-'+selected);
+    if(prev) prev.classList.remove('show');
+  }
+  selected = showing ? id : null;
+}
+
+document.getElementById('tree').innerHTML = data.map(n=>buildNode(n)).join('');
+</script>
