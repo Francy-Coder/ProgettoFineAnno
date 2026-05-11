@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/txtTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="VisionGo"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="40dp"/>
+
+    <Button
+        android:id="@+id/btnVoice"
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:text="Comando Vocale"
+        android:textSize="24sp"
+        android:backgroundTint="#1E88E5"
+        android:textColor="#FFFFFF"
+        android:contentDescription="Pulsante comando vocale"
+        app:layout_constraintTop_toBottomOf="@id/txtTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="60dp"/>
+
+    <Button
+        android:id="@+id/btnDestination"
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:text="Inserisci Destinazione"
+        android:textSize="22sp"
+        android:backgroundTint="#43A047"
+        android:textColor="#FFFFFF"
+        android:contentDescription="Pulsante inserisci destinazione"
+        app:layout_constraintTop_toBottomOf="@id/btnVoice"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="30dp"/>
+
+    <Button
+        android:id="@+id/btnEmergency"
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:text="Emergenza"
+        android:textSize="22sp"
+        android:backgroundTint="#E53935"
+        android:textColor="#FFFFFF"
+        android:contentDescription="Pulsante emergenza"
+        app:layout_constraintTop_toBottomOf="@id/btnDestination"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="30dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
