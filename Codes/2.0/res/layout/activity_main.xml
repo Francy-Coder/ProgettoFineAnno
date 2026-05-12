@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_black">
+
+    <TextView
+        android:id="@+id/txtTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textSize="@dimen/text_title"
+        android:textStyle="bold"
+        android:textColor="@color/text_white"
+        android:importantForAccessibility="yes"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="50dp"/>
+
+    <TextView
+        android:id="@+id/txtSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_subtitle"
+        android:textSize="@dimen/text_subtitle"
+        android:textColor="@color/text_subtitle"
+        android:importantForAccessibility="no"
+        app:layout_constraintTop_toBottomOf="@id/txtTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <Button
+        android:id="@+id/btnVoice"
+        android:layout_width="@dimen/btn_width"
+        android:layout_height="@dimen/btn_height"
+        android:text="Comando Vocale"
+        android:textSize="@dimen/text_btn_large"
+        android:backgroundTint="@color/btn_blue"
+        android:textColor="@color/text_white"
+        android:contentDescription="@string/desc_voice"
+        android:focusable="true"
+        app:layout_constraintTop_toBottomOf="@id/txtSubtitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/margin_top_large"/>
+
+    <Button
+        android:id="@+id/btnDestination"
+        android:layout_width="@dimen/btn_width"
+        android:layout_height="@dimen/btn_height"
+        android:text="Inserisci Destinazione"
+        android:textSize="@dimen/text_btn_medium"
+        android:backgroundTint="@color/btn_green"
+        android:textColor="@color/text_white"
+        android:contentDescription="@string/desc_destination"
+        android:focusable="true"
+        app:layout_constraintTop_toBottomOf="@id/btnVoice"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/margin_top_small"/>
+
+    <Button
+        android:id="@+id/btnFavorites"
+        android:layout_width="@dimen/btn_width"
+        android:layout_height="@dimen/btn_height"
+        android:text="Luoghi Preferiti"
+        android:textSize="@dimen/text_btn_medium"
+        android:backgroundTint="@color/btn_orange"
+        android:textColor="@color/text_white"
+        android:contentDescription="@string/desc_favorites"
+        android:focusable="true"
+        app:layout_constraintTop_toBottomOf="@id/btnDestination"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/margin_top_small"/>
+
+    <Button
+        android:id="@+id/btnHistory"
+        android:layout_width="@dimen/btn_width"
+        android:layout_height="@dimen/btn_height"
+        android:text="Cronologia"
+        android:textSize="@dimen/text_btn_medium"
+        android:backgroundTint="#6D4C41"
+        android:textColor="@color/text_white"
+        android:contentDescription="@string/desc_history"
+        android:focusable="true"
+        app:layout_constraintTop_toBottomOf="@id/btnFavorites"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/margin_top_small"/>
+
+    <Button
+        android:id="@+id/btnEmergency"
+        android:layout_width="@dimen/btn_width"
+        android:layout_height="@dimen/btn_height"
+        android:text="Emergenza"
+        android:textSize="@dimen/text_btn_medium"
+        android:backgroundTint="@color/btn_red"
+        android:textColor="@color/text_white"
+        android:contentDescription="@string/desc_emergency"
+        android:focusable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="40dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

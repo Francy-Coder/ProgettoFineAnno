@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_black"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txtRegTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Crea Account"
+            android:textSize="@dimen/text_heading"
+            android:textStyle="bold"
+            android:textColor="@color/text_white"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="50dp"/>
+
+        <EditText
+            android:id="@+id/editName"
+            android:layout_width="@dimen/btn_width"
+            android:layout_height="70dp"
+            android:hint="@string/hint_name"
+            android:textSize="20sp"
+            android:textColor="@color/text_white"
+            android:textColorHint="@color/text_hint"
+            android:backgroundTint="@color/text_white"
+            android:inputType="textPersonName"
+            android:contentDescription="Inserisci il tuo nome completo"
+            app:layout_constraintTop_toBottomOf="@id/txtRegTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="40dp"/>
+
+        <EditText
+            android:id="@+id/editEmail"
+            android:layout_width="@dimen/btn_width"
+            android:layout_height="70dp"
+            android:hint="@string/hint_email"
+            android:textSize="20sp"
+            android:textColor="@color/text_white"
+            android:textColorHint="@color/text_hint"
+            android:backgroundTint="@color/text_white"
+            android:inputType="textEmailAddress"
+            android:contentDescription="Inserisci il tuo indirizzo email"
+            app:layout_constraintTop_toBottomOf="@id/editName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/margin_top_small"/>
+
+        <EditText
+            android:id="@+id/editPassword"
+            android:layout_width="@dimen/btn_width"
+            android:layout_height="70dp"
+            android:hint="@string/hint_password"
+            android:textSize="20sp"
+            android:textColor="@color/text_white"
+            android:textColorHint="@color/text_hint"
+            android:backgroundTint="@color/text_white"
+            android:inputType="textPassword"
+            android:contentDescription="Scegli una password"
+            app:layout_constraintTop_toBottomOf="@id/editEmail"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/margin_top_small"/>
+
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="@dimen/btn_width"
+            android:layout_height="@dimen/btn_height"
+            android:text="@string/btn_register"
+            android:textSize="@dimen/text_btn_large"
+            android:backgroundTint="@color/btn_green"
+            android:textColor="@color/text_white"
+            android:contentDescription="Crea il tuo account VisionGo"
+            app:layout_constraintTop_toBottomOf="@id/editPassword"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/margin_top_medium"/>
+
+        <Button
+            android:id="@+id/btnGoLogin"
+            android:layout_width="@dimen/btn_width"
+            android:layout_height="@dimen/btn_height_small"
+            android:text="Hai gia un account? Accedi"
+            android:textSize="18sp"
+            android:backgroundTint="#424242"
+            android:textColor="@color/text_white"
+            android:contentDescription="Torna alla schermata di accesso"
+            app:layout_constraintTop_toBottomOf="@id/btnRegister"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/margin_top_small"
+            android:layout_marginBottom="40dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
