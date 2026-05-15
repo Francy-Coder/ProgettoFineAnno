@@ -1,8 +1,3 @@
-```text
-Ora ho letto tutto il codice. Ecco l'analisi completa di chi ha fatto cosa, basata sia sul documento che sul codice effettivo:
-
----
-
 ## 👨‍💻 Tresoldi Francesco — Informatica (Navigazione, GPS & AI)
 
 File: `NavigationActivity.java`, `DestinationActivity.java`, `CameraAnalysisActivity.java`, `obstacle_detector.py`
@@ -54,4 +49,3 @@ File: `VisionGoApplication.java`, `controller/AuthController.java`, `controller/
 - `CronologiaController.java` — API per salvare e recuperare la cronologia dei percorsi.
 - `JwtUtil.java` — Generazione e validazione token JWT.
 - `ApiService.java` + `RetrofitClient.java` — Client Retrofit lato Android per chiamare il backend.
-```
