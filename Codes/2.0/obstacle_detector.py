@@ -9,12 +9,6 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
-/* 
-# VECCHIO — deprecato e causa 403
-model = models.mobilenet_v3_small(pretrained=True)
-model.eval()
-*/
-
 # NUOVO — API corretta per torchvision >= 0.13
 from torchvision.models import MobileNet_V3_Small_Weights
 model = models.mobilenet_v3_small(weights=MobileNet_V3_Small_Weights.DEFAULT)
