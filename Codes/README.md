@@ -1,2 +1,5 @@
 # Attenzione !
-Progetto ancora in fase di sviluppo, quindi tutte le parti sono ancora da finire.. la fase 1.0 è solo la raccolta dei vostri codici, la fase 2.0 è l'unione, la 3.0 sarà la finale (speriamo 🙏)
+I codici sono dentro lo zip "VisionGo.zip" <br>
+Versione Attuale: 4.0 (alcune sono state cancellate) <br>
+Ultimo Aggiornamento Codice: 21/05/2026 <br>
+
