@@ -1,5 +1,8 @@
 # Errori
 
+## Icona App
+- Cambiare l'icona dell'app, quindi anche all'interno del app, in quest'immagine: [immagine.png](https://it.vecteezy.com/arte-vettoriale/21232392-bussola-ago-illustrazione-design-vettore)
+
 ## Pagina Accesso
 - Verificare il corretto funzionamento dell’accesso.
 - La funzione “Password dimenticata” non funziona.
