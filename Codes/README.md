@@ -4,6 +4,7 @@
 Scaricate la versione che preferite tra quelle disponibili.
 
 🔗 **Download:** [Clicca qui](https://drive.google.com/drive/folders/1C_o0_xlY8RRkDeUqOUXbpJUzv7tuu7w)
+[https://drive.google.com/drive/folders/1C_o0_xlY8RRkDeUqOUXbpJUzv7tuu7w_](https://drive.google.com/drive/folders/1C_o0_xlY8RRkDeUqOUXbpJUzv7tuu7w_)
 
 🧰 **Versione attuale:** `4.0`  
 Alcune versioni precedenti sono state rimosse.
