@@ -95,4 +95,4 @@ Nella tendina/menu mancano:
 - 🔧 Aggiungere un pulsante “Cancella cronologia”.
 
 # Miglioramenti
-Implementare un server, così che funziona anche non in locale
+Implementare un server, così che funziona anche non in locale (es: railway)
