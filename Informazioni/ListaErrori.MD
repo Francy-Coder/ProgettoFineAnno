@@ -93,3 +93,6 @@ Nella tendina/menu mancano:
   - data;
   - luoghi più utilizzati.
 - 🔧 Aggiungere un pulsante “Cancella cronologia”.
+
+# Miglioramenti
+Implementare un server, cos'ì che funziona anche online
