@@ -2,7 +2,7 @@
 
 ## Icona App
 - Cambiare l’icona dell’app utilizzando una bussola viola, sia nell’applicazione sia nella pagina di accesso.
-- Utilizzare come riferimento questa immagine: https://it.freepik.com/psd-premium/l-icona-di-un-app-viola-e-bianca-con-un-cerchio-bianco-nella-parte-inferiore_39816842.htm
+- Utilizzare come riferimento questa immagine: https://static.vecteezy.com/ti/vettori-gratis/p1/47639415-bussola-icona-per-ragnatela-app-infografica-eccetera-vettoriale.jpg
 
 ## Pagina Accesso
 - Verificare il corretto funzionamento dell’accesso.
