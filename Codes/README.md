@@ -1,5 +1,9 @@
-# Attenzione !
-📁 - I codici sono dentro i diversi zip, scaricate la versione che volete <br>
-🧰 -  Versione Attuale: 4.0 (alcune sono state cancellate) <br>
-👩‍💻 -  Ultimo Aggiornamento Codice: 21/05/2026 <br>
+# ⚠️ Attenzione
 
+📁 **Codici disponibili negli archivi ZIP**  
+Scaricate la versione che preferite tra quelle disponibili.
+
+🧰 **Versione attuale:** `4.0`  
+Alcune versioni precedenti sono state rimosse.
+
+👩‍💻 **Ultimo aggiornamento del codice:** `21/05/2026`
