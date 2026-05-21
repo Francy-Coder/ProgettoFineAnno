@@ -1,5 +1,9 @@
 # Errori
 
+## Icona App
+- Cambiare l’icona dell’app utilizzando una bussola viola, sia nell’applicazione sia nella pagina di accesso.
+- Utilizzare come riferimento questa immagine: https://it.vecteezy.com/arte-vettoriale/21232392-bussola-ago-illustrazione-design-vettore
+
 ## Pagina Accesso
 - Verificare il corretto funzionamento dell’accesso.
 - La funzione “Password dimenticata” non funziona.
